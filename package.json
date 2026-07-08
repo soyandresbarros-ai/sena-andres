@@ -1,0 +1,24 @@
+{
+  "name": "sena-andres",
+  "version": "1.0.0",
+  "description": "Este es un proyecto que estamos realizando con el sena de al ficha 52, con el profesor Andres Montoya",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soyandresbarros-ai/sena-andres.git"
+  },
+  "keywords": [],
+  "author": "Andres Barros",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/soyandresbarros-ai/sena-andres/issues"
+  },
+  "homepage": "https://github.com/soyandresbarros-ai/sena-andres#readme",
+  "dependencies": {
+    "pg": "^8.22.0"
+  }
+}
