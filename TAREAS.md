@@ -6,3 +6,5 @@
 - Metodo para actualizar(X)
 - Eliminar producto(X)
 - Método para buscar un producto por ID(X)
+- Buscar productos por nombre(X)
+- Contar todos los productos(X)

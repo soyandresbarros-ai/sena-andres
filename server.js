@@ -3,6 +3,8 @@ const {
   crearProducto,
   listarProductos,
   buscarProductoPorId,
+  buscarProductosPorNombre,
+  contarProductos,
   actualizarProducto,
   eliminarProducto,
 } = require("./src/productos");
@@ -20,6 +22,28 @@ app.get("/productos", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Error al listar los productos" });
+  }
+});
+
+// Contar todos los productos
+app.get("/productos/total", async (req, res) => {
+  try {
+    const total = await contarProductos();
+    res.json({ total });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al contar los productos" });
+  }
+});
+
+// Buscar productos por nombre
+app.get("/productos/buscar/:nombre", async (req, res) => {
+  try {
+    const productos = await buscarProductosPorNombre(req.params.nombre);
+    res.json(productos);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al buscar productos" });
   }
 });
 

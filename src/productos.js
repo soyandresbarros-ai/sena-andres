@@ -26,6 +26,23 @@ async function buscarProductoPorId(id) {
   return resultado.rows[0];
 }
 
+async function buscarProductosPorNombre(nombre) {
+  const resultado = await pool.query(
+    'SELECT * FROM public."Productos" WHERE name ILIKE $1 ORDER BY id',
+    [`%${nombre}%`],
+  );
+
+  return resultado.rows;
+}
+
+async function contarProductos() {
+  const resultado = await pool.query(
+    'SELECT COUNT(*)::int AS total FROM public."Productos"',
+  );
+
+  return resultado.rows[0].total;
+}
+
 async function actualizarProducto(id, name, description, image, price) {
   const resultado = await pool.query(
     'UPDATE public."Productos" SET name = $2, description = $3, image = $4, price = $5 WHERE id = $1 RETURNING *',
@@ -48,6 +65,8 @@ module.exports = {
   crearProducto,
   listarProductos,
   buscarProductoPorId,
+  buscarProductosPorNombre,
+  contarProductos,
   actualizarProducto,
   eliminarProducto,
 };
